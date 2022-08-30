@@ -1,50 +1,95 @@
+import { useState } from 'react'
+import clientAxios from '../config/clientAxios'
+import emailjs from 'emailjs-com'
 
 const RegisterForm = () => {
+  const [check, setCheck] = useState(false)
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phonenumber, setPhonenumber] = useState('')
+  const [userInstagram, setUserInstagram] = useState('')
+
+  const handleRegister = async (e) => {
+    e.preventDefault()
+    const form = {
+      name,
+      email,
+      phonenumber,
+      userInstagram
+    }
+
+    const { data } = await clientAxios.post('/landing/new-user', form)
+
+    console.log(data)
+
+    const frmContact = {
+      name,
+      email,
+      phonenumber,
+      userInstagram
+    }
+    emailjs.send('service_exgxyrh', 'template_3rkrbc5', frmContact, 'KMyysNWDqCJCt0FXH')
+      .then((response) => {
+        alert('Send message')
+      }, (err) => {
+        console.log('FAILED...', err)
+      })
+  }
+
+  const handleCheck = () => {
+    setCheck(!check)
+  }
   return (
     <section>
         <div className="bg-red-100 py-2 px-2">
             <h4 className="uppercase text-red-600 text-center font-bold text-xl description">Obtén tu regalo</h4>
             <p className="text-sm py-2 text-gray-600">Para obterner tu regalo es importante rellenar el formulario</p>
         </div>
-        <fom className="flex flex-col py-5 px-2 sm:px-10 md:px-20">
+        <form className="flex flex-col py-5 px-2 sm:px-10 md:px-20" onSubmit={handleRegister}>
             <div className="flex flex-col my-1">
                 <label htmlFor="name" className="my-1">
                     Nombre
                 </label>
-                <input className="border rounded-lg border-gray-700" type="text" id="name" />
+                <input className="px-2 border rounded-lg border-gray-700" type="text" id="name" value={name} onChange={e => setName(e.target.value)} />
             </div>
             <div className="flex flex-col my-1">
                 <label htmlFor="email" className="my12">
                     E-mail
                 </label>
-                <input className="border rounded-lg border-gray-700" type="email" id="email" />
+                <input className="px-2 border rounded-lg border-gray-700" type="email" id="email" value={email} onChange={e => setEmail(e.target.value)} />
             </div>
             <div className="flex flex-col my-1">
                 <label htmlFor="phone" className="my12">
                     Teléfono
                 </label>
-                <input className="border rounded-lg border-gray-700" type="text" id="phone" />
+                <input className="px-2 border rounded-lg border-gray-700" type="text" id="phone" value={phonenumber} onChange={e => setPhonenumber(e.target.value)} />
             </div>
             <div className="flex flex-col my-1">
                 <label htmlFor="nick" className="my-1">
                     Usuario Instagram
                 </label>
-                <input className="border rounded-lg border-gray-700" type="text" id="nick" />
+                <input className="px-2 border rounded-lg border-gray-700" type="text" id="nick" value={userInstagram} onChange={e => setUserInstagram(e.target.value)} />
             </div>
-            <div className="flex flex-col my-1">
-                <label htmlFor="check" className="my-1 text-red-900">
-                    Estoy de acuerdo en que mis datos
-                    <input type="checkbox" htmlForm="check"
+            <div className="my-3">
+                <label htmlFor="check" className="text-white bg-red-500 px-2 py-1 rounded">
+                    Si, acepto las politicas de privacidad.
+                    <input
+                        type="checkbox"
+                        id="check"
                         className="mx-2"
+                        onClick={handleCheck}
                     />
                 </label>
+                    <p className="text-gray-700 text-xs mt-2">Aceptando las polictas, podremos enviarte promociones y/o cualquier nuevo producto. No sederemos tu información personal, bajo ningúna circunstancia, a empresas externas para fines comerciales.</p>
             </div>
-            <input
-                type="submit"
-                value="REGALO"
-                className="text-white font-bold bg-sky-400 py-2 mt-2 rounded hover:bg-sky-600 transition-colors"
-            />
-        </fom>
+            {check &&
+                <input
+                    type="submit"
+                    value="REGALO"
+                    className="disable text-white font-bold bg-sky-400 py-2 mt-2 rounded hover:bg-sky-600 transition-colors"
+                />
+            }
+        </form>
     </section>
   )
 }
