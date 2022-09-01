@@ -1,8 +1,11 @@
+import { useTranslation } from 'react-i18next'
 
 const Description = () => {
+  const [t] = useTranslation('global')
+
   return (
     <aside className="text-center w-full">
-        <p className="text-xl description">Обучение испанскому языку online прямиком из Испании легко и с юмором 🇪🇸 Более 6 лет преподавания, сотни довольных учеников.</p>
+        <p className="text-xl description">{t('descriptions.description')}</p>
     </aside>
   )
 }

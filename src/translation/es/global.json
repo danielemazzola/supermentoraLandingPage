@@ -1,0 +1,31 @@
+{
+    "header": {
+        "supermentora":"@supermentora"
+    },
+    "descriptions": {
+        "description":"Aprender español online directamente desde España es fácil y divertido 🇪🇸 Más de 6 años enseñando, cientos de alumnos satisfechos."
+    },
+    "getGift":{
+        "giftOpen":"cerrar",
+        "giftClose":"Lleva tu regalo"
+    },
+    "chatClub":{
+        "chat":"Club de charla",
+        "chatMsg":"¡Empieza ahora!"
+    },
+    "groupClasses":{
+        "group":"clases grupales",
+        "submsg":"¡Empieza ahora!"
+    },
+    "formRegister":{
+        "title":"OBTÉN TU REGALO",
+        "description":"Para obterner tu regalo es importante rellenar el formulario",
+        "name":"Nombre completo",
+        "email":"Email",
+        "phonenumber":"Teléfono",
+        "userName":"Usuario Instagram",
+        "privacy":"Si, acepto las politicas de privacidad.",
+        "policiesPrivacy":"Aceptando las polictas, podremos enviarte promociones y/o cualquier nuevo producto. No sederemos tu información personal, bajo ningúna circunstancia, a empresas externas para fines comerciales.",
+        "button":"Obtener Regalo"
+    }
+}
