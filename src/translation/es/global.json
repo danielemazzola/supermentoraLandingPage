@@ -18,6 +18,7 @@
         "submsg":"¡Empieza ahora!"
     },
     "formRegister":{
+        "msgError":"Todos los campos son obligatorios",
         "title":"OBTÉN TU REGALO",
         "description":"Para obterner tu regalo es importante rellenar el formulario",
         "name":"Nombre completo",

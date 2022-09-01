@@ -17,7 +17,7 @@ const RegisterForm = () => {
     e.preventDefault()
     if ([name, email, phonenumber, userInstagram].includes('')) {
       setMsg(true)
-      setMsgText('Todos los campos son obligatorios')
+      setMsgText(t('formRegister.msgError'))
     } else {
       setMsg(false)
       const form = {

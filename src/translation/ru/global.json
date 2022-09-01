@@ -18,6 +18,7 @@
         "submsg":"¡начинай сейчас!"
     },
     "formRegister":{
+        "msgError":"",
         "title":"",
         "description":"",
         "name":"",
