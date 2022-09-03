@@ -18,8 +18,8 @@ function App () {
             <div className="my-3">
               <GetGift gift={ gift} setGift={setGift} />
               { gift &&
-                <div className="bg-zinc-50 rounded-lg my-5">
-                  <RegisterForm />
+                <div className="bg-zinc-50 rounded-lg my-5 animate-beat">
+                  <RegisterForm setGift={setGift} />
                 </div>
               }
             </div>

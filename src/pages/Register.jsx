@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { Navigate } from 'react-router-dom'
 
 const Register = () => {
   const [t] = useTranslation('global')

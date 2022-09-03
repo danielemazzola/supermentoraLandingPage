@@ -18,15 +18,15 @@
         "submsg":"¡начинай сейчас!"
     },
     "formRegister":{
-        "msgError":"",
-        "title":"",
-        "description":"",
-        "name":"",
-        "email":"",
-        "phonenumber":"",
-        "userName":"",
-        "privacy":"",
-        "policiesPrivacy":"",
-        "button":""
+        "msgError":"xxxxxxxxx",
+        "title":"xxxxxxxxx",
+        "description":"xxxxxxxxx",
+        "name":"xxxxxxxxx",
+        "email":"xxxxxxxxx",
+        "phonenumber":"xxxxxxxxx",
+        "userName":"xxxxxxxxx",
+        "privacy":"xxxxxxxxx",
+        "policiesPrivacy":"xxxxxxxxx",
+        "button":"xxxxxxxxx"
     }
 }
