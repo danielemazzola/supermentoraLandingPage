@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import clientAxios from '../config/clientAxios'
 import emailjs from 'emailjs-com'
 import { useTranslation } from 'react-i18next'
+import countries from '../helpers/countries.json'
 
 const RegisterForm = ({ setGift }) => {
   const [t] = useTranslation('global')
@@ -13,21 +14,51 @@ const RegisterForm = ({ setGift }) => {
   const [check, setCheck] = useState(false)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const [countrie, setCountrie] = useState('')
   const [phonenumber, setPhonenumber] = useState('')
   const [userInstagram, setUserInstagram] = useState('')
+  const [errName, setErrName] = useState(false)
+  const [errNameT, setErrNameT] = useState('')
+  const [errPhone, setErrPhone] = useState(false)
+  const [errPhoneT, setErrPhoneT] = useState('')
+  const [errNickName, setErrNickName] = useState(false)
+  const [errNickNameT, setErrNickNameT] = useState('')
 
   const handleRegister = async (e) => {
     e.preventDefault()
-    if ([name, email, phonenumber, userInstagram].includes('')) {
+    if ([name, email, countrie, phonenumber, userInstagram].includes('')) {
       setMsg(true)
       setMsgText(t('formRegister.msgError'))
       return
     }
+    if (name.length !== 0 && name.length <= 4) {
+      return
+    } else {
+      setErrName(false)
+      setErrNameT('')
+    }
+    if (phonenumber.length !== 0 && phonenumber.length <= 7) {
+      return
+    } else {
+      setErrPhone(false)
+      setErrPhoneT('')
+    }
+    if (userInstagram.length !== 0) {
+      if (userInstagram[0] !== '@') {
+        return
+      } else {
+        setErrNickName(false)
+        setErrNickNameT('')
+      }
+    }
+
     setLoading(true)
     setMsg(false)
+
     const form = {
       name,
       email,
+      countrie,
       phonenumber,
       userInstagram
     }
@@ -44,6 +75,7 @@ const RegisterForm = ({ setGift }) => {
           })
         setName('')
         setEmail('')
+        setCountrie('')
         setPhonenumber('')
         setUserInstagram('')
       } else {
@@ -67,6 +99,31 @@ const RegisterForm = ({ setGift }) => {
   const handleCheck = () => {
     setCheck(!check)
   }
+  useEffect(() => {
+    if (name.length !== 0 && name.length <= 4) {
+      setErrName(true)
+      setErrNameT('(Minimo 5 caracteres)')
+    } else {
+      setErrName(false)
+      setErrNameT('')
+    }
+    if (phonenumber.length !== 0 && phonenumber.length <= 7) {
+      setErrPhone(true)
+      setErrPhoneT('Faltan números')
+    } else {
+      setErrPhone(false)
+      setErrPhoneT('')
+    }
+    if (userInstagram.length !== 0) {
+      if (userInstagram[0] !== '@') {
+        setErrNickName(true)
+        setErrNickNameT('Debe comenzaro por @')
+      } else {
+        setErrNickName(false)
+        setErrNickNameT('')
+      }
+    }
+  })
   return (
     <section>
         <div className="bg-red-100 py-2 px-2">
@@ -78,7 +135,7 @@ const RegisterForm = ({ setGift }) => {
         {msgSend && <div className="bg-green-400 text-white text-lg font-bold text-center rounded-lg animate-beat">{msgTextSend}</div>}
             <div className="flex flex-col my-1">
                 <label htmlFor="name" className="my-1">
-                    {t('formRegister.name')}
+                    {t('formRegister.name')} <span className="text-xs text-red-500 font-bold">{errName && errNameT }</span>
                 </label>
                 <input className="px-2  rounded-lg" type="text" id="name" value={name} onChange={e => setName(e.target.value)} />
             </div>
@@ -89,14 +146,25 @@ const RegisterForm = ({ setGift }) => {
                 <input className="px-2  rounded-lg" type="email" id="email" value={email} onChange={e => setEmail(e.target.value)} />
             </div>
             <div className="flex flex-col my-1">
+              <label htmlFor='countrie' className="my12">
+              {t('formRegister.countrie')}
+              </label>
+              <select
+                value={countrie}
+                onChange={e => setCountrie(e.target.value)}>
+                <option></option>
+                { countries.countries?.map((count, index) => count && <option key={index} value={count.name_en + ' | ' + count.dial_code}>{count.name_en} || code {count.dial_code}</option>) }
+              </select>
+            </div>
+            <div className="flex flex-col my-1">
                 <label htmlFor="phone" className="my12">
-                {t('formRegister.phonenumber')}
+                {t('formRegister.phonenumber')} <span className="text-xs text-red-500 font-bold">{errPhone && errPhoneT }</span>
                 </label>
-                <input className="px-2  rounded-lg" type="text" id="phone" value={phonenumber} onChange={e => setPhonenumber(e.target.value)} />
+                <input className="px-2  rounded-lg" type="number" id="phone" value={phonenumber} onChange={e => setPhonenumber(e.target.value)} />
             </div>
             <div className="flex flex-col my-1">
                 <label htmlFor="nick" className="my-1">
-                {t('formRegister.userName')}
+                {t('formRegister.userName')} <span className="text-xs text-red-500 font-bold">{errNickName && errNickNameT }</span>
                 </label>
                 <input className="px-2  rounded-lg" type="text" id="nick" value={userInstagram} onChange={e => setUserInstagram(e.target.value)} />
             </div>

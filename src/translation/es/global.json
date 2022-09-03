@@ -23,6 +23,8 @@
         "description":"Para obterner tu regalo es importante rellenar el formulario",
         "name":"Nombre completo",
         "email":"Email",
+        "countrie":"Pais",
+        "codeCountrie":"Codigo de pais",
         "phonenumber":"Teléfono",
         "userName":"Usuario Instagram",
         "privacy":"Si, acepto las politicas de privacidad.",
