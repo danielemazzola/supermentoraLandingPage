@@ -3,6 +3,9 @@ import clientAxios from '../config/clientAxios'
 import emailjs from 'emailjs-com'
 import { useTranslation } from 'react-i18next'
 import countries from '../helpers/countries.json'
+import frases from '../download/frases-espanol-150.pdf'
+import guia from '../download/guia-mi-espanol.pdf'
+import series from '../download/guia-series-espanolas.pdf'
 
 const RegisterForm = ({ setGift }) => {
   const [t] = useTranslation('global')
@@ -23,6 +26,7 @@ const RegisterForm = ({ setGift }) => {
   const [errPhoneT, setErrPhoneT] = useState('')
   const [errNickName, setErrNickName] = useState(false)
   const [errNickNameT, setErrNickNameT] = useState('')
+  const [download, setDownload] = useState(false)
 
   const handleRegister = async (e) => {
     e.preventDefault()
@@ -43,57 +47,61 @@ const RegisterForm = ({ setGift }) => {
       setErrPhone(false)
       setErrPhoneT('')
     }
-    if (userInstagram.length !== 0) {
-      if (userInstagram[0] !== '@') {
-        return
-      } else {
-        setErrNickName(false)
-        setErrNickNameT('')
-      }
+    if (userInstagram.length !== 0 && userInstagram.length <= 2) {
+      setErrNickName(true)
+      setErrNickNameT(t('formRegister.errNickNameT'))
+    } else {
+      setErrNickName(false)
+      setErrNickNameT('')
     }
-
     setLoading(true)
     setMsg(false)
 
     const form = {
+      title: t('message.title'),
       name,
       email,
       countrie,
       phonenumber,
-      userInstagram
+      userInstagram,
+      message: `<div>
+          <h3>${t('message.hi')} ${name}</h3>
+          <p>${t('message.body1')}</p>
+          <p>${t('message.body2')}</p>
+          <p>${t('message.body3')}</p>
+          <p>${t('message.bye')}</p>
+        </div>`
+
     }
 
     const { data } = await clientAxios.post('/landing/new-user', form)
-    try {
-      if (data.newUser) {
-        setMsgSend(true)
-        emailjs.send('service_exgxyrh', 'template_3rkrbc5', form, 'KMyysNWDqCJCt0FXH')
-          .then((response) => {
-            setMsgTextSend(t('formRegister.sendMessage'))
-          }, (err) => {
-            alert('FAILED...', err)
-          })
-        setName('')
-        setEmail('')
-        setCountrie('')
-        setPhonenumber('')
-        setUserInstagram('')
-      } else {
-        setMsgSend(true)
-        setMsg(true)
-        setMsgText(t('formRegister.existsUser'))
-      }
-
-      setTimeout(() => {
-        setLoading(false)
-        setMsgSend(false)
-        setMsgTextSend('')
-        setMsgText('')
-        setMsg(false)
-      }, 3000)
-    } catch (error) {
-      alert(error.message)
+    if (data.newUser) {
+      setMsgSend(true)
+      emailjs.send(process.env.REACT_APP_SERVICE, process.env.REACT_APP_TEMPLATE, form, process.envREACT_APP_KEY)
+        .then((response) => {
+          setMsgTextSend(t('formRegister.sendMessage'))
+          setDownload(true)
+        }, (err) => {
+          alert('FAILED...', err)
+        })
+      setName('')
+      setEmail('')
+      setCountrie('')
+      setPhonenumber('')
+      setUserInstagram('')
+    } else {
+      setMsgSend(true)
+      setMsg(true)
+      setMsgText(t('formRegister.existsUser'))
     }
+
+    setTimeout(() => {
+      setLoading(false)
+      setMsgSend(false)
+      setMsgTextSend('')
+      setMsgText('')
+      setMsg(false)
+    }, 3000)
   }
 
   const handleCheck = () => {
@@ -114,14 +122,12 @@ const RegisterForm = ({ setGift }) => {
       setErrPhone(false)
       setErrPhoneT('')
     }
-    if (userInstagram.length !== 0) {
-      if (userInstagram[0] !== '@') {
-        setErrNickName(true)
-        setErrNickNameT(t('formRegister.errNickNameT'))
-      } else {
-        setErrNickName(false)
-        setErrNickNameT('')
-      }
+    if (userInstagram.length !== 0 && userInstagram.length <= 2) {
+      setErrNickName(true)
+      setErrNickNameT(t('formRegister.errNickNameT'))
+    } else {
+      setErrNickName(false)
+      setErrNickNameT('')
     }
   })
   return (
@@ -180,6 +186,14 @@ const RegisterForm = ({ setGift }) => {
                 </label>
                     <p className="text-gray-700 text-xs mt-2">{t('formRegister.policiesPrivacy')}</p>
             </div>
+            { download
+              ? <div className="mt-2 flex flex-col border-t-4 pt-4 bg-gray-100 px-2 rounded-b-lg">
+              <h3 className="uppercase">{t('formRegister.downloadMsg')}</h3>
+              <a className="bg-yellow-200 my-2 capitalize py-1 rounded-lg text-center sm:w-1/2 hover:bg-yellow-500 hover:text-white" href={frases} target="_blank" download rel="noreferrer">{t('message.download1')}</a>
+              <a className="bg-yellow-200 my-2 capitalize py-1 rounded-lg text-center sm:w-1/2 hover:bg-yellow-500 hover:text-white" href={guia} target="_blank" download rel="noreferrer">{t('message.download2')}</a>
+              <a className="bg-yellow-200 my-2 capitalize py-1 rounded-lg text-center sm:w-1/2 hover:bg-yellow-500 hover:text-white" href={series} target="_blank" download rel="noreferrer">{t('message.download3')}</a>
+              </div>
+              : <>
             { loading
               ? <div className="flex justify-center mt-5">
                 <span className="loader"></span>
@@ -193,6 +207,8 @@ const RegisterForm = ({ setGift }) => {
                     />
                 }
               </>
+            }
+            </>
             }
         </form>
     </section>

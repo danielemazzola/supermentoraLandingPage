@@ -5,7 +5,8 @@ const Description = () => {
 
   return (
     <aside className="text-center w-full">
-        <p className="text-xl description">{t('descriptions.description')}</p>
+        <p className="text-xl description">{t('descriptions.description1')}</p>
+        <p className="text-xl description">{t('descriptions.description2')}</p>
     </aside>
   )
 }

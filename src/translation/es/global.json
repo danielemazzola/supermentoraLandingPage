@@ -3,37 +3,50 @@
         "supermentora":"@supermentora"
     },
     "descriptions": {
-        "description":"Aprender español online directamente desde España es fácil y divertido 🇪🇸 Más de 6 años enseñando, cientos de alumnos satisfechos."
+        "description1":"Aprende español online directamente desde España de manera fácil y divertida.",
+        "description2":"Más de 6 años de experiencia, cientos de alumnos satisfechos."
     },
     "getGift":{
-        "giftOpen":"cerrar",
-        "giftClose":"Lleva tu regalo"
+        "giftOpen":"Cerrar",
+        "giftClose":"Lleva tus regalos"
     },
     "chatClub":{
-        "chat":"Club de charla",
-        "chatMsg":"¡Empieza ahora!"
+        "chat":"SúperClub",
+        "chatMsg":"¡Empieza a hablar ya!"
     },
     "groupClasses":{
-        "group":"clases grupales",
-        "submsg":"¡Empieza ahora!"
+        "group":"Clases grupales",
+        "submsg":"Pedir información"
     },
     "formRegister":{
         "msgError":"Todos los campos son obligatorios",
-        "title":"OBTÉN TU REGALO",
-        "description":"Para obterner tu regalo es importante rellenar el formulario",
+        "title":"OBTÉN TUs REGALOs",
+        "description":"Para obterner tus regalos es importante rellenar el formulario",
         "name":"Nombre completo",
         "email":"Email",
-        "countrie":"Pais",
-        "codeCountrie":"Codigo de pais",
+        "countrie":"País",
+        "codeCountrie":"Codigo de país",
         "phonenumber":"Teléfono",
         "userName":"Usuario Instagram",
-        "privacy":"Si, acepto las politicas de privacidad.",
-        "policiesPrivacy":"Aceptando las polictas, podremos enviarte promociones y/o cualquier nuevo producto. No sederemos tu información personal, bajo ningúna circunstancia, a empresas externas para fines comerciales.",
-        "button":"Obtener Regalo",
+        "privacy":"Sí, acepto la politica de privacidad.",
+        "policiesPrivacy":"Aceptando la politica de privacidad nos das permiso de enviarte promociones y/o información sobre nuevos productos. No sederemos tu información personal, bajo ningúna circunstancia, a empresas externas para fines comerciales.",
+        "button":"Obtener Regalos",
         "sendMessage":"Mensaje enviado, revisa tu bandeja.",
         "existsUser":"Usuario ya registrado",
-        "errNameT":"(Minimo 5 caracteres)",
+        "errNameT":"(Mínimo 5 caracteres)",
         "errPhoneT":"Faltan números",
-        "errNickNameT":"Debe comenzaro por @'"
+        "errNickNameT":"Campo obligatorio",
+        "downloadMsg":"Descarga tus archivos"
+    },
+    "message":{
+        "title":"SUPERMENTORA en acción😜",
+        "hi":"Hola hola" ,
+        "body1":"No te voy a hacer esperar más tiempo. Como te prometí ya te puedes descargar tu regalo",
+        "body2":"¡Espero que te sirva de ayuda!",
+        "body3":"Y bienvenid@ al SúperMundo",
+        "download1":"150 frases en español",
+        "download2":"Guia mi español",
+        "download3":"GUia series españolas",
+        "bye":"Tu profesora de español Evgenia"
     }
 }
