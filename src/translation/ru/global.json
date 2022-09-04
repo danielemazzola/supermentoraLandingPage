@@ -1,6 +1,6 @@
 {
     "header": {
-        "supermentora":"@supermentora-ruso"
+        "supermentora":"@supermentora"
     },
     "descriptions": {
         "description":"Обучение испанскому языку online прямиком из Испании легко и с юмором 🇪🇸 Более 6 лет преподавания, сотни довольных учеников."
@@ -18,17 +18,22 @@
         "submsg":"¡начинай сейчас!"
     },
     "formRegister":{
-        "msgError":"xxxxxxxxx",
-        "title":"xxxxxxxxx",
-        "description":"xxxxxxxxx",
-        "name":"xxxxxxxxx",
-        "email":"xxxxxxxxx",
-        "countrie":"xxxxxxxxx",
-        "codeCountrie":"xxxxxxxxx",
-        "phonenumber":"xxxxxxxxx",
-        "userName":"xxxxxxxxx",
-        "privacy":"xxxxxxxxx",
-        "policiesPrivacy":"xxxxxxxxx",
-        "button":"xxxxxxxxx"
+        "msgError":"Todos los campos son obligatorios",
+        "title":"OBTÉN TU REGALO",
+        "description":"Para obterner tu regalo es importante rellenar el formulario",
+        "name":"Nombre completo",
+        "email":"Email",
+        "countrie":"Pais",
+        "codeCountrie":"Codigo de pais",
+        "phonenumber":"Teléfono",
+        "userName":"Usuario Instagram",
+        "privacy":"Si, acepto las politicas de privacidad.",
+        "policiesPrivacy":"Aceptando las polictas, podremos enviarte promociones y/o cualquier nuevo producto. No sederemos tu información personal, bajo ningúna circunstancia, a empresas externas para fines comerciales.",
+        "button":"Obtener Regalo",
+        "sendMessage":"Mensaje enviado, revisa tu bandeja.",
+        "existsUser":"Usuario ya registrado",
+        "errNameT":"(Minimo 5 caracteres)",
+        "errPhoneT":"Faltan números",
+        "errNickNameT":"Debe comenzaro por @"
     }
 }

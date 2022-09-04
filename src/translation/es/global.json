@@ -29,6 +29,11 @@
         "userName":"Usuario Instagram",
         "privacy":"Si, acepto las politicas de privacidad.",
         "policiesPrivacy":"Aceptando las polictas, podremos enviarte promociones y/o cualquier nuevo producto. No sederemos tu información personal, bajo ningúna circunstancia, a empresas externas para fines comerciales.",
-        "button":"Obtener Regalo"
+        "button":"Obtener Regalo",
+        "sendMessage":"Mensaje enviado, revisa tu bandeja.",
+        "existsUser":"Usuario ya registrado",
+        "errNameT":"(Minimo 5 caracteres)",
+        "errPhoneT":"Faltan números",
+        "errNickNameT":"Debe comenzaro por @'"
     }
 }

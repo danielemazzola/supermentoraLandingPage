@@ -69,7 +69,7 @@ const RegisterForm = ({ setGift }) => {
         setMsgSend(true)
         emailjs.send('service_exgxyrh', 'template_3rkrbc5', form, 'KMyysNWDqCJCt0FXH')
           .then((response) => {
-            setMsgTextSend('Send message')
+            setMsgTextSend(t('formRegister.sendMessage'))
           }, (err) => {
             alert('FAILED...', err)
           })
@@ -81,7 +81,7 @@ const RegisterForm = ({ setGift }) => {
       } else {
         setMsgSend(true)
         setMsg(true)
-        setMsgText('User already exist')
+        setMsgText(t('formRegister.existsUser'))
       }
 
       setTimeout(() => {
@@ -102,14 +102,14 @@ const RegisterForm = ({ setGift }) => {
   useEffect(() => {
     if (name.length !== 0 && name.length <= 4) {
       setErrName(true)
-      setErrNameT('(Minimo 5 caracteres)')
+      setErrNameT(t('formRegister.errNameT'))
     } else {
       setErrName(false)
       setErrNameT('')
     }
     if (phonenumber.length !== 0 && phonenumber.length <= 7) {
       setErrPhone(true)
-      setErrPhoneT('Faltan números')
+      setErrPhoneT(t('formRegister.errPhoneT'))
     } else {
       setErrPhone(false)
       setErrPhoneT('')
@@ -117,7 +117,7 @@ const RegisterForm = ({ setGift }) => {
     if (userInstagram.length !== 0) {
       if (userInstagram[0] !== '@') {
         setErrNickName(true)
-        setErrNickNameT('Debe comenzaro por @')
+        setErrNickNameT(t('formRegister.errNickNameT'))
       } else {
         setErrNickName(false)
         setErrNickNameT('')
@@ -153,7 +153,7 @@ const RegisterForm = ({ setGift }) => {
                 value={countrie}
                 onChange={e => setCountrie(e.target.value)}>
                 <option></option>
-                { countries.countries?.map((count, index) => count && <option key={index} value={count.name_en + ' | ' + count.dial_code}>{count.name_en} || code {count.dial_code}</option>) }
+                { countries.countries?.map((count, index) => count && <option key={index} value={count.name_en + ' | ' + count.dial_code}>{count.name_en} ({count.dial_code})</option>) }
               </select>
             </div>
             <div className="flex flex-col my-1">
