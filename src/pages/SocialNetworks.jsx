@@ -9,7 +9,7 @@ const SocialNetworks = () => {
         <a href="https://web.telegram.org/k/#@supermentora_espanol" title="@supermentora_espanol" target="_blank" className="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 mx-2" rel="noreferrer">
             <img src={telegrama} alt="Telegram" className="w-10"/>
         </a>
-        <a href="https://wa.me/34722272980/?text=Hola Supermentora, ¡me gustaria aprender ESPAÑOL!" title="Whatsapp" target="_blank" className="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 mx-2" rel="noreferrer">
+        <a href="https://wa.me/34722272980/?text=¡Hola! Хочу получить информацию по обучению🇪🇸" title="Whatsapp" target="_blank" className="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 mx-2" rel="noreferrer">
             <img src={whatsapp} alt="Whatsapp" className="w-10"/>
         </a>
         <a href="https://www.instagram.com/supermentora/?hl=es" title="@supermentora" target="_blank" className="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 mx-2" rel="noreferrer">
