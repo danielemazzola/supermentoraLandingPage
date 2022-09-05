@@ -77,7 +77,7 @@ const RegisterForm = ({ setGift }) => {
     const { data } = await clientAxios.post('/landing/new-user', form)
     if (data.newUser) {
       setMsgSend(true)
-      emailjs.send(process.env.REACT_APP_SERVICE, process.env.REACT_APP_TEMPLATE, form, process.envREACT_APP_KEY)
+      emailjs.send('service_64m4o7p', 'template_cksw2w4', form, 'eaKi81AQPGD30Wqfp')
         .then((response) => {
           setMsgTextSend(t('formRegister.sendMessage'))
           setDownload(true)

@@ -1,19 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.0d042b4d.css",
-    "main.js": "/static/js/main.abee7be2.js",
-    "static/media/icono.png": "/static/media/icono.87a08264fe0c249f2318.png",
+    "main.css": "/static/css/main.3d866ba2.css",
+    "main.js": "/static/js/main.2c9cfbdd.js",
+    "static/media/guia-mi-espanol.pdf": "/static/media/guia-mi-espanol.d40cb5e8e96acee721f6.pdf",
+    "static/media/icono.png": "/static/media/icono.2572116fe8d18bb8e9ca.png",
+    "static/media/guia-series-espanolas.pdf": "/static/media/guia-series-espanolas.05db86e7f238f198ac74.pdf",
+    "static/media/frases-espanol-150.pdf": "/static/media/frases-espanol-150.dbec1c2aad501b1d75b4.pdf",
     "static/media/instagram.png": "/static/media/instagram.79535458a8a6d88f81d4.png",
     "static/media/logo.png": "/static/media/logo.dea4ee9b74c6616d7554.png",
     "static/media/whatsapp.png": "/static/media/whatsapp.d026940870fb334920b7.png",
     "static/media/telegrama.png": "/static/media/telegrama.04c3d4028b28944f72b9.png",
     "static/media/espana.png": "/static/media/espana.ae722c8ed0520a4aff79.png",
     "index.html": "/index.html",
-    "main.0d042b4d.css.map": "/static/css/main.0d042b4d.css.map",
-    "main.abee7be2.js.map": "/static/js/main.abee7be2.js.map"
+    "main.3d866ba2.css.map": "/static/css/main.3d866ba2.css.map",
+    "main.2c9cfbdd.js.map": "/static/js/main.2c9cfbdd.js.map"
   },
   "entrypoints": [
-    "static/css/main.0d042b4d.css",
-    "static/js/main.abee7be2.js"
+    "static/css/main.3d866ba2.css",
+    "static/js/main.2c9cfbdd.js"
   ]
 }
